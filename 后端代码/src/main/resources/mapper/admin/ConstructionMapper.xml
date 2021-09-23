@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qrs.admin.mapper.ConstructionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qrs.admin.pojo.Construction">
+        <id column="id" property="id" />
+        <result column="construction_id" property="construction_id" />
+        <result column="construction_number" property="construction_number" />
+        <result column="construction_name" property="construction_name" />
+        <result column="construction_longitude" property="construction_longitude" />
+        <result column="construction_latitude" property="construction_latitude" />
+        <result column="head_name" property="head_name" />
+        <result column="head_phone" property="head_phone" />
+        <result column="construction_people" property="construction_people" />
+        <result column="construction_address" property="construction_address" />
+        <result column="update_time" property="update_time" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, construction_id, construction_number, construction_name, construction_longitude, construction_latitude, head_name, head_phone,construction_people,construction_address,update_time, create_time
+    </sql>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qrs.admin.mapper.LimitMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qrs.admin.pojo.Limit">
+        <id column="id" property="id" />
+        <result column="device_id" property="device_id" />
+        <result column="device_number" property="device_number" />
+        <result column="device_name" property="device_name" />
+        <result column="min_value" property="min_value" />
+        <result column="max_value" property="max_value" />
+        <result column="unit" property="unit" />
+        <result column="accuracy" property="accuracy" />
+        <result column="update_time" property="update_time" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, device_id, device_number, device_name, min_value, max_value, unit,`accuracy`,update_time, create_time
+    </sql>
+
+</mapper>

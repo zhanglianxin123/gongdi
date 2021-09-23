@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qrs.WeChat.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qrs.WeChat.pojo.User">
+        <id column="id" property="id" />
+        <result column="user_id" property="user_id" />
+        <result column="construction_id" property="construction_id" />
+        <result column="department_id" property="department_id" />
+        <result column="role_id" property="role_id" />
+        <result column="user_name" property="user_name" />
+        <result column="sex" property="sex" />
+        <result column="password" property="password" />
+        <result column="phone" property="phone" />
+        <result column="id_card" property="id_card" />
+        <result column="address" property="address" />
+        <result column="update_time" property="update_time" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <resultMap id="BaseResultMap2" type="com.qrs.admin.pojo.DTO.UserDetailedDTO3">
+        <id column="id" property="id" />
+        <result column="user_id" property="user_id" />
+        <result column="construction_id" property="construction_id" />
+        <result column="department_id" property="department_id" />
+        <result column="role_id" property="role_id" />
+        <result column="user_name" property="user_name" />
+        <result column="sex" property="sex" />
+        <result column="password" property="password" />
+        <result column="phone" property="phone" />
+        <result column="id_card" property="id_card" />
+        <result column="address" property="address" />
+        <result column="update_time" property="update_time" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id,construction_id, department_id, role_id, user_name, sex, password, phone, id_card, address, update_time, create_time
+    </sql>
+
+    <select id="getList" resultType="com.qrs.admin.pojo.DTO.UserDetailedDTO3">
+        SELECT t_user.*,t_construction.construction_name AS construction_name,t_department.`department_name`,t_role.`role_name` AS role_name
+        FROM t_user,t_construction,t_department,t_role
+        WHERE t_user.`construction_id`=t_construction.`construction_id`
+          AND t_user.`department_id`=t_department.`department_id`
+          AND t_user.`role_id`=t_role.`role_id`
+            LIMIT #{from}, #{toIndex};
+    </select>
+
+    <select id="getSelectList" resultType="com.qrs.admin.pojo.DTO.UserDetailedDTO3">
+        SELECT t_user.*,t_construction.construction_name AS construction_name,t_department.`department_name`,t_role.`role_name` AS role_name
+        FROM t_user,t_construction,t_department,t_role
+        WHERE t_user.`construction_id`=t_construction.`construction_id`
+          AND t_user.`department_id`=t_department.`department_id`
+          AND t_user.`role_id`=t_role.`role_id`
+          AND t_user.user_name  like (#{ch})
+    </select>
+    <select id="getSelectByID" resultType="com.qrs.admin.pojo.DTO.UserDetailedDTO3">
+        SELECT t_user.*,t_construction.construction_name AS construction_name,t_department.`department_name`,t_role.`role_name` AS role_name
+        FROM t_user,t_construction,t_department,t_role
+        WHERE t_user.`construction_id`=t_construction.`construction_id`
+          AND t_user.`department_id`=t_department.`department_id`
+          AND t_user.`role_id`=t_role.`role_id`
+          AND t_user.user_id  like (#{ch})
+    </select>
+
+
+
+
+</mapper>

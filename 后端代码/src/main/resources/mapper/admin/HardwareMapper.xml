@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qrs.admin.mapper.HardwareMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qrs.admin.pojo.Hardware">
+        <id column="id" property="id" />
+        <result column="tardward_id" property="tardward_id" />
+        <result column="vibration_one" property="vibration_one" />
+        <result column="acceleration_x_one" property="acceleration_x_one" />
+        <result column="acceleration_y_one" property="acceleration_y_one" />
+        <result column="acceleration_z_one" property="acceleration_z_one" />
+        <result column="vibration_two" property="vibration_two" />
+        <result column="acceleration_x_two" property="acceleration_x_two" />
+        <result column="acceleration_y_two" property="acceleration_y_two" />
+        <result column="acceleration_z_two" property="acceleration_z_two" />
+        <result column="detection_one" property="detection_one" />
+        <result column="detection_two" property="detection_two" />
+        <result column="update_time" property="update_time" />
+        <result column="create_time" property="create_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tardward_id, vibration_one, acceleration_x_one, acceleration_y_one, acceleration_z_one, vibration_two, acceleration_x_two, acceleration_y_two, acceleration_z_two, detection_one, detection_two, update_time, create_time
+    </sql>
+
+</mapper>
